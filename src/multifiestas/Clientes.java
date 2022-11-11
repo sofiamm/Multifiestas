@@ -11,7 +11,8 @@ public class Clientes {
         this.nombre = "";
         this.username = "";
         this.password = "";
-        this.estado = "";
+        this.estado = "Activo";
+        
     }
 
     public String getNombre() {
@@ -45,4 +46,5 @@ public class Clientes {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+    
 }

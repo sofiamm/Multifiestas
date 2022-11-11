@@ -22,13 +22,12 @@ public class Lista {
     public void agregar() {
         Clientes e = new Clientes();
         e.setNombre(JOptionPane.showInputDialog(null,
-                "Digite el id del estudiante:"));
-        e.setNombre(JOptionPane.showInputDialog(null,
-                "Digite el nombre del estudiante:"));
-        e.setNotaPromedio(Integer.parseInt(JOptionPane.showInputDialog(null,
-                "Digite el promedio:")));
-        e.setEstado(JOptionPane.showInputDialog(null,
-                "Digite el estado:"));
+                "Digite su nombre completo para registrarlo en el sistema: "));
+        e.setUsername(JOptionPane.showInputDialog(null,
+                "Digite su Username: "));
+        e.setPassword(JOptionPane.showInputDialog(null,
+                "Digite su contraseña: "));
+        
         Nodo nuevo = new Nodo();
         nuevo.setElemento(e);
         if (esVacia()) {
@@ -57,43 +56,19 @@ public class Lista {
         if (!esVacia()) {
             String s = "";
             Nodo aux = inicio;
-            s = s + aux.getElemento().getNombre() + " - " + aux.getElemento().getId() + " - "
-                    + aux.getElemento().getNotaPromedio() + " - " + aux.getElemento().getEstado() + "\n";
+            s = s + aux.getElemento().getNombre() + " - " + aux.getElemento().getUsername() + " - "
+                    + aux.getElemento().getPassword() + " - " + aux.getElemento().getEstado() + "\n";
             aux = aux.getSiguiente();
             while (aux != inicio) {
-                s = s + aux.getElemento().getNombre() + " - " + aux.getElemento().getId() + " - "
-                        + aux.getElemento().getNotaPromedio() + " - " + aux.getElemento().getEstado() + "\n";
+                s = s + aux.getElemento().getNombre() + " - " + aux.getElemento().getUsername() + " - "
+                        + aux.getElemento().getPassword() + " - " + aux.getElemento().getEstado() + "\n";
                 aux = aux.getSiguiente();
             }
-            JOptionPane.showMessageDialog(null, "La lista de estudiantes es:\n" + s);
+            JOptionPane.showMessageDialog(null, "La lista de clientes registrados es:\n" + s);
         } else {
-            JOptionPane.showMessageDialog(null, "¡No se puede mostrar, lista vacía!",
+            JOptionPane.showMessageDialog(null, "¡No se puede mostrar el registro, lista de clientes vacía!",
                     "Lista vacía", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public void mostrarNotaMayorMenor() {
-        int mayor = 0;
-        int menor = 0;
-
-        Nodo aux = inicio;
-        if (!esVacia()) {
-            mayor = aux.getElemento().getNotaPromedio();
-            menor = aux.getElemento().getNotaPromedio();
-            aux = aux.getSiguiente();
-            while (aux != inicio) {
-                if (aux.getElemento().getNotaPromedio() > mayor) {
-                    mayor = aux.getElemento().getNotaPromedio();
-                }
-                if (aux.getElemento().getNotaPromedio() < menor) {
-                    menor = aux.getElemento().getNotaPromedio();
-                }
-                aux = aux.getSiguiente();
-            }
-            JOptionPane.showMessageDialog(null, "La nota mayor es:\n" + mayor + "La nota mayor es:\n" + menor);
-        } else {
-            JOptionPane.showMessageDialog(null, "¡No se puede mostrar!",
-                    "Lista vacía", JOptionPane.ERROR_MESSAGE);
-        }
-    }
 }
