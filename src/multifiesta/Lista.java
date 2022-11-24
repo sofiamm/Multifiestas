@@ -1,8 +1,8 @@
-package multifiestas;
-
+package multifiesta;
 import javax.swing.JOptionPane;
 
 public class Lista {
+    
     private Nodo inicio;
     private Nodo fin;
 
@@ -70,5 +70,61 @@ public class Lista {
                     "Lista vacía", JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    
+    public void inactivar_usuario(){
+        if (!esVacia()){
+            
+           String nom = (JOptionPane.showInputDialog(null,"Digite el Username de la persona a inactivar: "));
+          
+           String s = "";
+           Nodo aux = inicio;
+           if (aux.getElemento().getUsername().equals(nom)){
+               inicio.getElemento().setEstado(inicio.getElemento().getInac());
+           }
+           aux = aux.getSiguiente();
+           
+           while (aux !=inicio) {
+               if (aux.getElemento().getUsername().equals(nom)){
+               inicio.getElemento().setEstado(inicio.getElemento().getInac());
+           }
+               aux = aux.getSiguiente();
+                }
+         JOptionPane.showMessageDialog(null,"El estado del usuario: "+inicio.getElemento().getUsername()+ " es "+ inicio.getElemento().getInac());
+ 
+      }else{
+         JOptionPane.showMessageDialog(null,"No se puede mostrar, lista vacía!","Error",
+            JOptionPane.ERROR_MESSAGE);
+      }
+    }
+    
+    public void login(){
+         if (!esVacia()){
+            
+           String nom = (JOptionPane.showInputDialog(null,"Ingrese su Username: "));
+           String contra = (JOptionPane.showInputDialog(null, "Ingrese su contraseña:"));
+          
+           String s = "";
+           Nodo aux = inicio;
+           if (aux.getElemento().getUsername().equals(nom) && aux.getElemento().getPassword().equals(contra))
+           {
+               Menu m = new Menu();
+               m.mostrarMenuL();
+           
+           
+           JOptionPane.showMessageDialog(null, "Bienvenido a Multifiesta" );
+         }else{
+               
+         JOptionPane.showMessageDialog(null,"No se puede mostrar, lista vacía!","Error",
+            JOptionPane.ERROR_MESSAGE);
+         Menu m = new Menu();
+         m.mostrarMenuR();
+      }
+    }
 }
+}
+
+    
+
+    
+    
+

@@ -1,18 +1,19 @@
-package multifiestas;
+package multifiesta;
 
 public class Clientes {
-
+      
     private String nombre;
     private String username;
     private String password;
     private String estado;
+    private String inac;
 
     public Clientes() {
         this.nombre = "";
         this.username = "";
         this.password = "";
-        this.estado = "Activo";
-        
+        this.estado = "Activo";  
+        this.inac = "Inactivo";
     }
 
     public String getNombre() {
@@ -46,5 +47,13 @@ public class Clientes {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
+
+    public String getInac() {
+        return inac;
+    }
+
+    public void setInac(String inac) {
+        this.inac = inac;
+    }
+
 }
