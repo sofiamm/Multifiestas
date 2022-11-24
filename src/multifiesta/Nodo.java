@@ -1,7 +1,7 @@
 package multifiesta;
 
 public class Nodo {
-    
+
     private Clientes elemento;
     private Nodo siguiente;
 

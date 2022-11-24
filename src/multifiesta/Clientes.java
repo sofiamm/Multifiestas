@@ -1,7 +1,7 @@
 package multifiesta;
 
 public class Clientes {
-      
+
     private String nombre;
     private String username;
     private String password;
@@ -12,7 +12,7 @@ public class Clientes {
         this.nombre = "";
         this.username = "";
         this.password = "";
-        this.estado = "Activo";  
+        this.estado = "Activo";
         this.inac = "Inactivo";
     }
 
