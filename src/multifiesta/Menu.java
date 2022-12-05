@@ -6,7 +6,8 @@ public class Menu {
 
     private int opcion;
     Lista lsc = new Lista();
-
+    Eventos e= new Eventos();
+    
     public void mostrarMenuR() {
 
         opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "-- MENÚ PRINCIPAL --\n\n"
@@ -57,7 +58,7 @@ public class Menu {
                 break;
             }
             case 3: {
-                JOptionPane.showMessageDialog(null, "Metodo en construcción");
+                e.Menu();
                 mostrarMenuL();
                 break;
             }
