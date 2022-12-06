@@ -1,9 +1,9 @@
-package multifiesta;
+package clientes;
 
 import javax.swing.JOptionPane;
 
 public class Lista {
-    
+
     private Nodo inicio;
     private Nodo fin;
 
@@ -23,12 +23,12 @@ public class Lista {
     public void agregar() {
         Clientes e = new Clientes();
         e.setNombre(JOptionPane.showInputDialog(null,
-                "Digite su nombre completo para registrarlo en el sistema: "));
+                "Digite su nombre completo para registrarlo en el sistema:"));
         e.setUsername(JOptionPane.showInputDialog(null,
-                "Digite su Username: "));
+                "Digite su username:"));
         e.setPassword(JOptionPane.showInputDialog(null,
-                "Digite su contraseña: "));
-        
+                "Digite su contraseña:"));
+
         Nodo nuevo = new Nodo();
         nuevo.setElemento(e);
         if (esVacia()) {
@@ -71,52 +71,47 @@ public class Lista {
                     "Lista vacía", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    public void inactivar_usuario(){
-        if (!esVacia()){
-            
-           String nom = (JOptionPane.showInputDialog(null,"Digite el Username de la persona a inactivar: "));
-          
-           String s = "";
-           Nodo aux = inicio;
-           if (aux.getElemento().getUsername().equals(nom)){
-               inicio.getElemento().setEstado(inicio.getElemento().getInac());
-           }
-           aux = aux.getSiguiente();
-           
-           while (aux !=inicio) {
-               if (aux.getElemento().getUsername().equals(nom)){
-               inicio.getElemento().setEstado(inicio.getElemento().getInac());
-           }
-               aux = aux.getSiguiente();
+
+    public void inactivarUsuario() {
+        if (!esVacia()) {
+            String nom = JOptionPane.showInputDialog(null, "Digite el username de la persona a inactivar: ");
+            if (inicio.getElemento().getUsername().equals(nom)) {
+                inicio.getElemento().setEstado(inicio.getElemento().getInac());
+                JOptionPane.showMessageDialog(null, "El estado del usuario: " + inicio.getElemento().getUsername() + " es " + inicio.getElemento().getInac());
+            } else {
+                Nodo aux = inicio;
+                while (aux != null) {
+                    if (aux.getElemento().getUsername().equals(nom)) {
+                        aux.getElemento().setEstado(aux.getElemento().getInac());
+                        JOptionPane.showMessageDialog(null, "El estado del usuario: " + aux.getElemento().getUsername() + " es " + aux.getElemento().getInac());
+                    }
+                    aux = aux.getSiguiente();
                 }
-         JOptionPane.showMessageDialog(null,"El estado del usuario: "+inicio.getElemento().getUsername()+ " es "+ inicio.getElemento().getInac());
- 
-      }else{
-         JOptionPane.showMessageDialog(null,"No se puede mostrar, lista vacía!","Error",
-            JOptionPane.ERROR_MESSAGE);
-      }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No se puede mostrar, lista vacía!", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }
-    
-    public void login(){
-         if (!esVacia()){
-            
-           String nom = (JOptionPane.showInputDialog(null,"Ingrese su Username: "));
-           String contra = (JOptionPane.showInputDialog(null, "Ingrese su contraseña:"));
-          
-           String s = "";
-           Nodo aux = inicio;
-           if (aux.getElemento().getUsername().equals(nom) && aux.getElemento().getPassword().equals(contra))
-           {
-           
-           JOptionPane.showMessageDialog(null, "Bienvenido a Multifiesta" );
-         }else{
-               
-         JOptionPane.showMessageDialog(null,"Usuario no existente","Error",
-            JOptionPane.ERROR_MESSAGE);
-        
-      }
+
+    public void login() {
+        if (!esVacia()) {
+
+            String nom = (JOptionPane.showInputDialog(null, "Ingrese su Username: "));
+            String contra = (JOptionPane.showInputDialog(null, "Ingrese su contraseña:"));
+
+            String s = "";
+            Nodo aux = inicio;
+            if (aux.getElemento().getUsername().equals(nom) && aux.getElemento().getPassword().equals(contra)) {
+
+                JOptionPane.showMessageDialog(null, "Bienvenido a Multifiesta");
+            } else {
+
+                JOptionPane.showMessageDialog(null, "Usuario no existente", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+
+            }
+        }
     }
-}
 
 }

@@ -1,7 +1,8 @@
-package multifiesta;
+package eventos;
 
-public class Eventos_Datos {
-    private String nombnreE;
+public class Datos {
+
+    private String nombre;
     private String fecha;
     private String lugar;
     private String estado;
@@ -11,25 +12,25 @@ public class Eventos_Datos {
     private String estado2;
     private String dirección;
 
-    public Eventos_Datos(){
-        this.nombnreE="";
-        this.fecha="";
-        this.lugar="";
-        this.estado="Activo";
-        this.codigo_area=0;
-        this.numeroA=0;
-        this.costo=0.00;
-        this.estado2="Inactivo";
-        this.dirección="";
+    public Datos() {
+        this.nombre = "";
+        this.fecha = "";
+        this.lugar = "";
+        this.estado = "Activo";
+        this.codigo_area = 0;
+        this.numeroA = 0;
+        this.costo = 0.00;
+        this.estado2 = "Inactivo";
+        this.dirección = "";
 
     }
 
-    public String getNombnreE() {
-        return nombnreE;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombnreE(String nombnreE) {
-        this.nombnreE = nombnreE;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getFecha() {
@@ -96,5 +97,4 @@ public class Eventos_Datos {
         this.estado2 = estado2;
     }
 
-    
 }

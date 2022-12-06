@@ -1,7 +1,7 @@
-package multifiesta;
+package eventos;
 
 public class NodoDC {
-    private Eventos_Datos dato;
+    private Datos dato;
     private NodoDC siguiente;
     private NodoDC anterior;
 
@@ -27,11 +27,11 @@ public class NodoDC {
     }
 
 
-    public Eventos_Datos getDato() {
+    public Datos getDato() {
         return dato;
     }
 
-    public void setDato(Eventos_Datos dato) {
+    public void setDato(Datos dato) {
         this.dato = dato;
     }
 

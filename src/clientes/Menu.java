@@ -1,11 +1,13 @@
-package multifiesta;
+package clientes;
 
+import eventos.Eventos;
 import javax.swing.JOptionPane;
 
 public class Menu {
 
     private int opcion;
     Lista lsc = new Lista();
+    Eventos eve = new Eventos();
     
     public void mostrarMenu() {
         opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "-- MENÚ PRINCIPAL --\n\n"  
@@ -34,13 +36,12 @@ public class Menu {
                 break;
             }
             case 4: {
-                lsc.inactivar_usuario();
-                JOptionPane.showMessageDialog(null, "Gracias por usar el sistema del grupo Multifiestas  :)" );
+                lsc.inactivarUsuario();
                 mostrarMenu();
                 break;
             }
             case 5: {
-                JOptionPane.showMessageDialog(null, "Metodo en construcción... (Aquí va el apartado de eventos)" );
+                eve.Menu();
                 mostrarMenu();
                 break;
             }

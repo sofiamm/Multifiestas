@@ -1,4 +1,4 @@
-package multifiesta;
+package clientes;
 
 public class Clientes {
 

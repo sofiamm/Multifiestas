@@ -1,7 +1,7 @@
-package multifiesta;
+package eventos;
 
 public class NodoLC {
-    private Eventos_Datos dato;
+    private Datos dato;
     private NodoLC siguiente;
 
     public NodoLC(){
@@ -17,12 +17,12 @@ public class NodoLC {
     }
 
 
-    public Eventos_Datos getDato() {
+    public Datos getDato() {
         return dato;
     }
 
 
-    public void setDato(Eventos_Datos dato) {
+    public void setDato(Datos dato) {
         this.dato = dato;
     }
 }

@@ -1,7 +1,10 @@
 /dist/
+.DS_Store
 build/built-jar.properties
-build/classes/multifiesta/Lista.class
-*.class
-build/classes/multifiesta/Lista.class
+nbproject/project.properties
 build/classes/multifiesta/Main.class
+build/classes/multifiesta/Lista.class
 build/classes/multifiesta/Menu.class
+build/classes/multifiesta/Nodo.class
+build/classes/multifiesta/Clientes.class
+*.class
