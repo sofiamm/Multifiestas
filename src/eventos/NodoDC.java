@@ -1,13 +1,14 @@
 package eventos;
 
 public class NodoDC {
+
     private Datos dato;
     private NodoDC siguiente;
     private NodoDC anterior;
 
-    public NodoDC(){
-        this.siguiente=null;
-        this.anterior=null;
+    public NodoDC() {
+        this.siguiente = null;
+        this.anterior = null;
     }
 
     public NodoDC getSiguiente() {
@@ -25,7 +26,6 @@ public class NodoDC {
     public void setAnterior(NodoDC anterior) {
         this.anterior = anterior;
     }
-
 
     public Datos getDato() {
         return dato;
