@@ -1,1 +1,7 @@
 /dist/
+build/built-jar.properties
+build/classes/multifiesta/Lista.class
+*.class
+build/classes/multifiesta/Lista.class
+build/classes/multifiesta/Main.class
+build/classes/multifiesta/Menu.class

@@ -6,67 +6,50 @@ public class Menu {
 
     private int opcion;
     Lista lsc = new Lista();
-    Eventos e= new Eventos();
     
-    public void mostrarMenuR() {
-
-        opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "-- MENÚ PRINCIPAL --\n\n"
+    public void mostrarMenu() {
+        opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "-- MENÚ PRINCIPAL --\n\n"  
                 + "1. Registrarme\n"
                 + "2. Iniciar Sesión\n"
-                + "3. Salir del sistema\n\n"
+                + "3. Mostrar clientes por nombre\n"
+                + "4. Inactivar Usuario\n"
+                + "5. Mostrar Catalogo de eventos\n"
+                + "6. Salir del sistema\n\n"
                 + "Digite su opción:"));
-
+        
         switch (opcion) {
             case 1: {
                 lsc.agregar();
-                JOptionPane.showMessageDialog(null, "Usuario registrado con exito");
-                mostrarMenuR();
+                mostrarMenu();
                 break;
             }
             case 2: {
                 lsc.login();
+                mostrarMenu();
                 break;
             }
             case 3: {
-                System.exit(0);
-                break;
-            }
-            default: {
-                JOptionPane.showMessageDialog(null,
-                        "¡Opción invalida, ingrese una de las opciones validas del menu!", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }
-
-    public void mostrarMenuL() {
-        opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "-- MENÚ PRINCIPAL --\n\n"
-                + "1. Mostrar clientes por nombre\n"
-                + "2. Inactivar Usuario\n"
-                + "3. Mostrar Catalogo de eventos\n"
-                + "4. Salir del sistema\n\n"
-                + "Digite su opción:"));
-
-        switch (opcion) {
-            case 1: {
                 lsc.mostrarPorNombre();
-                mostrarMenuL();
-                break;
-            }
-            case 2: {
-                lsc.inactivar_usuario();
-                mostrarMenuL();
-                break;
-            }
-            case 3: {
-                e.Menu();
-                mostrarMenuL();
+                mostrarMenu();
                 break;
             }
             case 4: {
+                lsc.inactivar_usuario();
+                JOptionPane.showMessageDialog(null, "Gracias por usar el sistema del grupo Multifiestas  :)" );
+                mostrarMenu();
+                break;
+            }
+            case 5: {
+                JOptionPane.showMessageDialog(null, "Metodo en construcción... (Aquí va el apartado de eventos)" );
+                mostrarMenu();
+                break;
+            }
+            case 6: {
                 JOptionPane.showMessageDialog(null, "Gracias por usar el sistema del grupo Multifiestas  :)");
                 System.exit(0);
                 break;
             }
+            
             default: {
                 JOptionPane.showMessageDialog(null,
                         "¡Opción invalida, ingrese una de las opciones validas del menu!", "Error", JOptionPane.ERROR_MESSAGE);
