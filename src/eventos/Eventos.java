@@ -226,6 +226,7 @@ public class Eventos extends Lista {
     }
 
     public void editarAsiento() {
+        boolean cambio = false;
         if (!esVaciaAsiento()) {
             NodoDC aux = inicio;
             int asiento = (Integer.parseInt(JOptionPane.
@@ -235,6 +236,7 @@ public class Eventos extends Lista {
                         showInputDialog(null, "Digite el nuevo número de asiento:")));
                 //Estado del asiento-disponibilidad del mismo
                 inicio.getDato().setNumeroA(nuevoA);
+                cambio = true;
             }
             aux = aux.getSiguiente();
             while (aux != inicio) {
@@ -242,13 +244,19 @@ public class Eventos extends Lista {
                     int nuevoA = (Integer.parseInt(JOptionPane.
                             showInputDialog(null, "Digite el nuevo número de asiento:")));
                     inicio.getDato().setNumeroA(nuevoA);
+                    cambio = true;
                 }
             }
             aux = aux.getSiguiente();
         }
-        JOptionPane.
-                showMessageDialog(null, "¡Asiento editado correctamente!",
-                        "successful", JOptionPane.INFORMATION_MESSAGE);
+        if (cambio) {
+            JOptionPane.showMessageDialog(null, "¡Evento editado correctamente!",
+                    "Succesful", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "¡Evento no editado!",
+                    "Error", JOptionPane.INFORMATION_MESSAGE);
+
+        }
     }
 
     public void mostrarEventos() {
