@@ -27,12 +27,12 @@ public class MenuEventos {
                 break;
             }
             case 2: {
-                eve.editar();
+                eve.editarEvento();
                 Menu();
                 break;
             }
             case 3: {
-                eve.editar2();
+                eve.editarAsiento();
                 Menu();
                 break;
             }
@@ -62,8 +62,8 @@ public class MenuEventos {
                 }
             }
             case 5: {
-                eve.mostrarLC();
-                eve.mostrarDC();
+                eve.mostrarEventos();
+                eve.mostrarAsientos();
                 Menu();
                 break;
             }

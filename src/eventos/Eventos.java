@@ -1,7 +1,6 @@
 package eventos;
 
 import clientes.Lista;
-import clientes.Menu;
 import javax.swing.JOptionPane;
 
 public class Eventos extends Lista {
@@ -18,7 +17,7 @@ public class Eventos extends Lista {
         this.fin2 = null;
     }
 
-    public boolean esVaciaLC() {
+    public boolean esVaciaEvento() {
         if (inicio == null) {
             return true;
         } else {
@@ -26,7 +25,7 @@ public class Eventos extends Lista {
         }
     }
 
-    public boolean esVaciaDC() {
+    public boolean esVaciaAsiento() {
         if (inicio == null) {
             return true;
         } else {
@@ -43,11 +42,13 @@ public class Eventos extends Lista {
         e.setLugarEve(JOptionPane.showInputDialog(null,
                 "Ingrese el lugar:"));
         e.setDireccionEve(JOptionPane.showInputDialog(null,
-                "Ingrese la dirección con la ciudad:"));
+                "Ingrese la ciudad:"));
+        e.setDireccionEve(JOptionPane.showInputDialog(null,
+                "Ingrese la dirección:"));
 
         NodoLC nuevo = new NodoLC();
         nuevo.setDato(e);
-        if (esVaciaLC()) {
+        if (esVaciaEvento()) {
             inicio2 = nuevo;
             fin2 = nuevo;
             fin2.setSiguiente(inicio2);
@@ -79,7 +80,7 @@ public class Eventos extends Lista {
                 "Ingrese el costo de venta:")));
         NodoDC nuevo = new NodoDC();
         nuevo.setDato(e);
-        if (esVaciaDC()) {
+        if (esVaciaAsiento()) {
             inicio = nuevo;
             fin = nuevo;
             fin.setSiguiente(inicio);
@@ -106,14 +107,14 @@ public class Eventos extends Lista {
         }
     }
 
-    public void editar() {
-        if (!esVaciaLC()) {
+    public void editarEvento() {
+        if (!esVaciaEvento()) {
             NodoLC aux = inicio2;
             String evento = (JOptionPane.
-                    showInputDialog(null, "Digite el nombre del evento"));
+                    showInputDialog(null, "Digite el nombre del evento que desea cambiar:"));
             if (aux.getDato().getNombreEve().equals(evento)) {
                 String nuevo = (JOptionPane.
-                        showInputDialog(null, "Coloque el nuevo dato a editar"));
+                        showInputDialog(null, "Digite el nuevo nombre del evento:"));
                 inicio2.getDato().setNombreEve(nuevo);
 
             }
@@ -122,28 +123,28 @@ public class Eventos extends Lista {
             while (aux != inicio2) {
                 if (aux.getDato().getNombreEve().equals(evento)) {
                     String nuevo = (JOptionPane.
-                            showInputDialog(null, "Coloque el nuevo dato a editar"));
+                            showInputDialog(null, "Digite el nuevo nombre del evento:"));
                     inicio2.getDato().setNombreEve(nuevo);
 
                 }
                 aux = aux.getSiguiente();
             }
             JOptionPane.
-                    showMessageDialog(null, "Dato editado correctamente",
+                    showMessageDialog(null, "¡Evento editado correctamente!",
                             "successful", JOptionPane.INFORMATION_MESSAGE);
 
         }
 
     }
 
-    public void editar2() {
-        if (!esVaciaDC()) {
+    public void editarAsiento() {
+        if (!esVaciaAsiento()) {
             NodoDC aux = inicio;
             int asiento = (Integer.parseInt(JOptionPane.
-                    showInputDialog(null, "Digite el número de asiento:")));
+                    showInputDialog(null, "Digite el número de asiento a editar:")));
             if (aux.getDato().getNumeroA() == asiento) {
                 int nuevoA = (Integer.parseInt(JOptionPane.
-                        showInputDialog(null, "Coloque el nuevo número de asiento:")));
+                        showInputDialog(null, "Digite el nuevo número de asiento:")));
                 //Estado del asiento-disponibilidad del mismo
                 inicio.getDato().setNumeroA(nuevoA);
             }
@@ -151,19 +152,19 @@ public class Eventos extends Lista {
             while (aux != inicio) {
                 if (aux.getDato().getNumeroA() == asiento) {
                     int nuevoA = (Integer.parseInt(JOptionPane.
-                            showInputDialog(null, "Coloque el nuevo dato a editar")));
+                            showInputDialog(null, "Digite el nuevo número de asiento:")));
                     inicio.getDato().setNumeroA(nuevoA);
                 }
             }
             aux = aux.getSiguiente();
         }
         JOptionPane.
-                showMessageDialog(null, "Dato editado correctamente",
+                showMessageDialog(null, "¡Asiento editado correctamente!",
                         "successful", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public void mostrarLC() {
-        if (!esVaciaLC()) {
+    public void mostrarEventos() {
+        if (!esVaciaEvento()) {
             String s = "";
             NodoLC aux = inicio2;
             s = s + aux.getDato().getNombreEve() + " - " + aux.getDato().getFechaEve() + " - "
@@ -174,15 +175,15 @@ public class Eventos extends Lista {
                         + aux.getDato().getLugarEve() + " - " + aux.getDato().getDireccionEve() + "\n";
                 aux = aux.getSiguiente();
             }
-            JOptionPane.showMessageDialog(null, "La lista de Catalago de eventos contiene:\n" + s);
+            JOptionPane.showMessageDialog(null, "Catálago de eventos:\n" + s);
         } else {
-            JOptionPane.showMessageDialog(null, "¡No se puede mostrar, lista vacía!",
+            JOptionPane.showMessageDialog(null, "¡No se puede mostrar la lista vacía!",
                     "Lista vacía", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public void mostrarDC() {
-        if (!esVaciaDC()) {
+    public void mostrarAsientos() {
+        if (!esVaciaAsiento()) {
             String s = "";
             NodoDC aux = inicio;
             s = s + aux.getDato().getNumeroA() + " - " + aux.getDato().getCodigoArea() + " - "
@@ -193,15 +194,15 @@ public class Eventos extends Lista {
                         + aux.getDato().getCosto() + "\n";
                 aux = aux.getSiguiente();
             }
-            JOptionPane.showMessageDialog(null, "La lista de Catalogo de asientos contiene:\n" + s);
+            JOptionPane.showMessageDialog(null, "Catálogo de asientos:\n" + s);
         } else {
-            JOptionPane.showMessageDialog(null, "¡No se puede mostrar, lista vacía!",
+            JOptionPane.showMessageDialog(null, "¡No se puede mostrar la lista vacía!",
                     "Lista vacía", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     public void inactivarEvento() {
-        if (!esVaciaLC()) {
+        if (!esVaciaEvento()) {
             String evento = JOptionPane.showInputDialog(null, "Ingrese el evento a invalidar");
             NodoLC aux = inicio2;
             if (aux.getDato().getNombreEve().equals(evento)) {
@@ -224,7 +225,7 @@ public class Eventos extends Lista {
     }
 
     public void inactivarAsiento() {
-        if (!esVaciaDC()) {
+        if (!esVaciaAsiento()) {
             int asiento = (Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el asiento a liberar")));
             NodoDC aux = inicio;
             if (aux.getDato().getNumeroA() == asiento) {
