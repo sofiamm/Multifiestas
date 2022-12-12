@@ -115,7 +115,7 @@ public class Eventos extends Lista {
                 "Ingrese la fecha:"));
         e.setLugarEve(JOptionPane.showInputDialog(null,
                 "Ingrese el lugar:"));
-        e.setDireccionEve(JOptionPane.showInputDialog(null,
+        e.setCiudad(JOptionPane.showInputDialog(null,
                 "Ingrese la ciudad:"));
         e.setDireccionEve(JOptionPane.showInputDialog(null,
                 "Ingrese la dirección:"));
@@ -246,15 +246,18 @@ public class Eventos extends Lista {
         if (!esVaciaEvento()) {
             String s = "";
             NodoLC aux = inicioEvento;
-            s = s + aux.getDato().getNombreEve() + " - " + aux.getDato().getFechaEve() + " - "
-                    + aux.getDato().getLugarEve() + " - " + aux.getDato().getDireccionEve() + "\n";
+            s = s + "Nombre del evento: "+ aux.getDato().getNombreEve() + "\n"
+                  + "Fecha del evento: "+ aux.getDato().getFechaEve() + "\n"
+                  + "Lugar del evento: "+ aux.getDato().getLugarEve() + "\n"
+                  + "Dirección del evento: "+ aux.getDato().getDireccionEve() + "\n"
+                  + "Ciudad del evento: "+aux.getDato().getCiudad();
             aux = aux.getSiguiente();
             while (aux != inicioEvento) {
                 s = s + aux.getDato().getNombreEve() + " - " + aux.getDato().getFechaEve() + " - "
                         + aux.getDato().getLugarEve() + " - " + aux.getDato().getDireccionEve() + "\n";
                 aux = aux.getSiguiente();
             }
-            JOptionPane.showMessageDialog(null, "Catálago de eventos:\n" + s);
+            JOptionPane.showMessageDialog(null, "Catálago de eventos\n" + s);
         } else {
             JOptionPane.showMessageDialog(null, "¡No se puede mostrar la lista vacía!",
                     "Lista vacía", JOptionPane.ERROR_MESSAGE);
@@ -265,15 +268,16 @@ public class Eventos extends Lista {
         if (!esVaciaAsiento()) {
             String s = "";
             NodoDC aux = inicio;
-            s = s + aux.getDato().getNumeroA() + " - " + aux.getDato().getCodigoArea() + " - "
-                    + aux.getDato().getCosto() + "\n";
+            s = s + "Numero de asiento: "+aux.getDato().getNumeroA() + "\n" 
+                  + "Codigo de area: "+aux.getDato().getCodigoArea() + "\n"
+                  +  "Costo del evento: "+aux.getDato().getCosto() + "\n";
             aux = aux.getSiguiente();
             while (aux != inicio) {
                 s = s + aux.getDato().getNumeroA() + " - " + aux.getDato().getCodigoArea() + " - "
                         + aux.getDato().getCosto() + "\n";
                 aux = aux.getSiguiente();
             }
-            JOptionPane.showMessageDialog(null, "Catálogo de asientos:\n" + s);
+            JOptionPane.showMessageDialog(null, "Catálogo de asientos\n" + s);
         } else {
             JOptionPane.showMessageDialog(null, "¡No se puede mostrar la lista vacía!",
                     "Lista vacía", JOptionPane.ERROR_MESSAGE);
