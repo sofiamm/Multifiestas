@@ -217,7 +217,7 @@ public class Eventos extends Lista {
             if (aux.getDato().getNumeroA() == asiento) {
                 int nuevoA = (Integer.parseInt(JOptionPane.
                         showInputDialog(null, "Coloque el nuevo número de asiento:")));
-                        //Estado del asiento-disponibilidad del mismo
+                //Estado del asiento-disponibilidad del mismo
                 inicio.getDato().setNumeroA(nuevoA);
             }
             aux = aux.getSiguiente();
