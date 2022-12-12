@@ -1,6 +1,7 @@
 package eventos;
 
 import clientes.Lista;
+import ventas.MenuVentas;
 import javax.swing.JOptionPane;
 import clientes.Menu;
 
@@ -36,13 +37,15 @@ public class Eventos extends Lista {
 
     public void Menu() {
         Menu m = new Menu();
+        MenuVentas mv = new MenuVentas();
         int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "-- MENÚ EVENTOS --\n\n"
                 + "1. Agregar evento\n"
                 + "2. Editar catálogo de eventos\n"
                 + "3. Editar catálogo de asientos\n"
                 + "4. Invalidar\n"
-                + "5. Mostrar eventos y asientos\n"
-                + "6. Volver a menú principal\n\n"
+                + "5. Mostrar catálogos\n"
+                + "6. Comprar asientos\n"
+                + "7. Volver a menú principal\n\n"
                 + "Digite su opción:"));
 
         switch (opcion) {
@@ -94,6 +97,11 @@ public class Eventos extends Lista {
                 break;
             }
             case 6: {
+                mv.mostrarMenu();
+                Menu();
+                break;
+            }
+            case 7: {
                 m.mostrarMenu();
                 Menu();
                 break;
@@ -246,11 +254,11 @@ public class Eventos extends Lista {
         if (!esVaciaEvento()) {
             String s = "";
             NodoLC aux = inicioEvento;
-            s = s + "Nombre del evento: "+ aux.getDato().getNombreEve() + "\n"
-                  + "Fecha del evento: "+ aux.getDato().getFechaEve() + "\n"
-                  + "Lugar del evento: "+ aux.getDato().getLugarEve() + "\n"
-                  + "Dirección del evento: "+ aux.getDato().getDireccionEve() + "\n"
-                  + "Ciudad del evento: "+aux.getDato().getCiudad();
+            s = s + "Nombre del evento: " + aux.getDato().getNombreEve() + "\n"
+                    + "Fecha del evento: " + aux.getDato().getFechaEve() + "\n"
+                    + "Lugar del evento: " + aux.getDato().getLugarEve() + "\n"
+                    + "Dirección del evento: " + aux.getDato().getDireccionEve() + "\n"
+                    + "Ciudad del evento: " + aux.getDato().getCiudad();
             aux = aux.getSiguiente();
             while (aux != inicioEvento) {
                 s = s + aux.getDato().getNombreEve() + " - " + aux.getDato().getFechaEve() + " - "
@@ -268,9 +276,9 @@ public class Eventos extends Lista {
         if (!esVaciaAsiento()) {
             String s = "";
             NodoDC aux = inicio;
-            s = s + "Numero de asiento: "+aux.getDato().getNumeroA() + "\n" 
-                  + "Codigo de area: "+aux.getDato().getCodigoArea() + "\n"
-                  +  "Costo del evento: "+aux.getDato().getCosto() + "\n";
+            s = s + "Numero de asiento: " + aux.getDato().getNumeroA() + "\n"
+                    + "Codigo de area: " + aux.getDato().getCodigoArea() + "\n"
+                    + "Costo del evento: " + aux.getDato().getCosto() + "\n";
             aux = aux.getSiguiente();
             while (aux != inicio) {
                 s = s + aux.getDato().getNumeroA() + " - " + aux.getDato().getCodigoArea() + " - "

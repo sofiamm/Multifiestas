@@ -2,13 +2,13 @@ package ventas;
 
 import javax.swing.JOptionPane;
 
-public class Menu {
+public class MenuVentas {
 
     private int opc;
     Arbol a = new Arbol();
 
     public void mostrarMenu() {
-        Menu m = new Menu();
+        MenuVentas m = new MenuVentas();
         opc = Integer.parseInt(JOptionPane.showInputDialog(null,
                 "-- MENÚ PRINCIPAL --\n"
                 + "1. Comprar asientos\n"
