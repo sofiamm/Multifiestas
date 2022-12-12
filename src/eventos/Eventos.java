@@ -106,7 +106,7 @@ public class Eventos extends Lista {
 
         }
     }
-    
+
     public void CatalogoEventos() {
         Datos e = new Datos();
         e.setNombreEve(JOptionPane.showInputDialog(null,
@@ -203,9 +203,14 @@ public class Eventos extends Lista {
                 }
                 aux = aux.getSiguiente();
             }
-            JOptionPane.
-                    showMessageDialog(null, "¡Evento editado correctamente!",
-                            "successful", JOptionPane.INFORMATION_MESSAGE);
+            if (aux.getDato().getNombreEve().equals(evento)) {
+                JOptionPane.showMessageDialog(null, "¡Evento editado correctamente!",
+                        "Succesful", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "¡Evento no editado!",
+                        "Error", JOptionPane.INFORMATION_MESSAGE);
+
+            }
 
         }
 

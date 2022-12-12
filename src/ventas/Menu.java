@@ -8,11 +8,12 @@ public class Menu {
     Arbol a = new Arbol();
 
     public void mostrarMenu() {
+        Menu m = new Menu();
         opc = Integer.parseInt(JOptionPane.showInputDialog(null,
                 "***MENÚ PRINCIPAL***\n"
-                        + "1.Agregar elemento\n"
-                        + "2.MostrarElementos\n"
-                        + "3.Eliminar árbol\n"
+                        + "1.Comprar asientos\n"  //inserta
+                        + "2.Modificar\n"  //MostrarElementos
+                        + "3.Cancelar asientos\n"    //Eliminar árbol
                         + "4.Salir\n"
                         + "Digite su opción: "));
         switch (opc) {

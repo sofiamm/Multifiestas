@@ -1,10 +1,8 @@
 package ventas;
-
 import javax.swing.JOptionPane;
-
 public class Arbol {
     
-     private NodoA raiz;
+   private NodoA raiz;
    
    public Arbol(){
       this.raiz=null;
@@ -19,7 +17,7 @@ public class Arbol {
    public void inserta(){
       Dato d=new Dato();
       d.setNumeroAsiento(Integer.parseInt(JOptionPane.showInputDialog(null,
-        "Digite un número:")));
+        "Digite el numero de asiento:")));
       NodoA nuevo=new NodoA();
       nuevo.setElemento(d);
       if(esVacio()){
