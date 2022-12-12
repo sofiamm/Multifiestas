@@ -69,7 +69,7 @@ public class Eventos extends Lista {
                 int op = Integer.parseInt(JOptionPane.showInputDialog(null, "-- MENÚ INVALIDAR --\n\n"
                         + "1. Invalidar eventos\n"
                         + "2. Invalidar asientos \n"
-                        + "3. para salir\n\n"
+                        + "3. Regresar al menú de eventos\n\n"
                         + "Digite su opción:"));
                 switch (op) {
                     case 1: {
@@ -190,6 +190,7 @@ public class Eventos extends Lista {
     }
 
     public void editarEvento() {
+        boolean cambio = false;
         if (!esVaciaEvento()) {
             NodoLC aux = inicioEvento;
             String evento = (JOptionPane.
@@ -198,7 +199,7 @@ public class Eventos extends Lista {
                 String nuevo = (JOptionPane.
                         showInputDialog(null, "Digite el nuevo nombre del evento:"));
                 inicioEvento.getDato().setNombreEve(nuevo);
-
+                cambio = true;
             }
             aux = aux.getSiguiente();
 
@@ -207,11 +208,11 @@ public class Eventos extends Lista {
                     String nuevo = (JOptionPane.
                             showInputDialog(null, "Digite el nuevo nombre del evento:"));
                     inicioEvento.getDato().setNombreEve(nuevo);
-
+                    cambio = true;
                 }
                 aux = aux.getSiguiente();
             }
-            if (aux.getDato().getNombreEve().equals(evento)) {
+            if (cambio) {
                 JOptionPane.showMessageDialog(null, "¡Evento editado correctamente!",
                         "Succesful", JOptionPane.INFORMATION_MESSAGE);
             } else {
