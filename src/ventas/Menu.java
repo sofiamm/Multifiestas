@@ -10,12 +10,13 @@ public class Menu {
     public void mostrarMenu() {
         Menu m = new Menu();
         opc = Integer.parseInt(JOptionPane.showInputDialog(null,
-                "***MENÚ PRINCIPAL***\n"
-                        + "1.Comprar asientos\n"  //inserta
-                        + "2.Modificar\n"  //MostrarElementos
-                        + "3.Cancelar asientos\n"    //Eliminar árbol
-                        + "4.Salir\n"
-                        + "Digite su opción: "));
+                "-- MENÚ PRINCIPAL --\n"
+                        + "1. Comprar asientos\n"
+                        + "2. Modificar asiento\n"
+                        + "2. Mostrar asientos\n"
+                        + "3. Cancelar asientos\n"
+                        + "4. Salir\n"
+                        + "Digite su opción:"));
         switch (opc) {
             case 1: {
                 a.inserta();
