@@ -29,7 +29,7 @@ public class Menu {
                 break;
             }
             case 3: {
-                a.eliminarTodo();
+            
                 mostrarMenu();
                 break;
             }
