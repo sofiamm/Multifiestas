@@ -1,13 +1,13 @@
 package clientes;
 
-import eventos.MenuEventos;
+import eventos.Eventos;
 import javax.swing.JOptionPane;
 
 public class Menu {
 
     private int opcion;
     Lista lsc = new Lista();
-    MenuEventos eve = new MenuEventos();
+    Eventos eve = new Eventos();
     
     public void mostrarMenu() {
         opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "-- MENÚ PRINCIPAL --\n\n"  

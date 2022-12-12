@@ -2,23 +2,24 @@ package eventos;
 
 import clientes.Lista;
 import javax.swing.JOptionPane;
+import clientes.Menu;
 
 public class Eventos extends Lista {
 
     private NodoDC inicio;
     private NodoDC fin;
-    private NodoLC inicio2;
-    private NodoLC fin2;
+    private NodoLC inicioEvento;
+    private NodoLC finEvento;
 
     public Eventos() {
         this.inicio = null;
         this.fin = null;
-        this.inicio2 = null;
-        this.fin2 = null;
+        this.inicioEvento = null;
+        this.finEvento = null;
     }
 
     public boolean esVaciaEvento() {
-        if (inicio == null) {
+        if (inicioEvento == null) {
             return true;
         } else {
             return false;
@@ -33,6 +34,79 @@ public class Eventos extends Lista {
         }
     }
 
+    public void Menu() {
+        Menu m = new Menu();
+        int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "-- MENÚ EVENTOS --\n\n"
+                + "1. Agregar evento\n"
+                + "2. Editar catálogo de eventos\n"
+                + "3. Editar catálogo de asientos\n"
+                + "4. Invalidar\n"
+                + "5. Mostrar eventos y asientos\n"
+                + "6. Volver a menú principal\n\n"
+                + "Digite su opción:"));
+
+        switch (opcion) {
+            case 1: {
+                CatalogoEventos();
+                CatalogoAsientos();
+                Menu();
+                break;
+            }
+            case 2: {
+                editarEvento();
+                Menu();
+                break;
+            }
+            case 3: {
+                editarAsiento();
+                Menu();
+                break;
+            }
+            case 4: {
+                int op = Integer.parseInt(JOptionPane.showInputDialog(null, "-- MENÚ INVALIDAR --\n\n"
+                        + "1. Invalidar eventos\n"
+                        + "2. Invalidar asientos \n"
+                        + "3. para salir\n\n"
+                        + "Digite su opción:"));
+                switch (op) {
+                    case 1: {
+                        inactivarEvento();
+                        break;
+                    }
+                    case 2: {
+                        inactivarAsiento();
+                        break;
+                    }
+                    case 3: {
+                        Menu();
+                    }
+                    default: {
+                        JOptionPane.showMessageDialog(null,
+                                "¡Opción invalida, ingrese una de las opciones validas del menu!", "Error", JOptionPane.ERROR_MESSAGE);
+                        Menu();
+                    }
+                }
+            }
+            case 5: {
+                mostrarEventos();
+                mostrarAsientos();
+                Menu();
+                break;
+            }
+            case 6: {
+                m.mostrarMenu();
+                Menu();
+                break;
+            }
+            default: {
+                JOptionPane.showMessageDialog(null,
+                        "¡Opción invalida, ingrese una de las opciones validas del menu!", "Error", JOptionPane.ERROR_MESSAGE);
+                Menu();
+            }
+
+        }
+    }
+    
     public void CatalogoEventos() {
         Datos e = new Datos();
         e.setNombreEve(JOptionPane.showInputDialog(null,
@@ -49,19 +123,19 @@ public class Eventos extends Lista {
         NodoLC nuevo = new NodoLC();
         nuevo.setDato(e);
         if (esVaciaEvento()) {
-            inicio2 = nuevo;
-            fin2 = nuevo;
-            fin2.setSiguiente(inicio2);
-        } else if (e.getNombreEve().compareTo(inicio2.getDato().getNombreEve()) < 0) {
-            nuevo.setSiguiente(inicio2);
-            inicio2 = nuevo;
-            fin2.setSiguiente(inicio2);
-        } else if (e.getNombreEve().compareTo(fin.getDato().getNombreEve()) >= 0) {
-            fin2.setSiguiente(nuevo);
-            fin2 = nuevo;
-            fin2.setSiguiente(inicio2);
+            inicioEvento = nuevo;
+            finEvento = nuevo;
+            finEvento.setSiguiente(inicioEvento);
+        } else if (e.getNombreEve().compareTo(inicioEvento.getDato().getNombreEve()) < 0) {
+            nuevo.setSiguiente(inicioEvento);
+            inicioEvento = nuevo;
+            finEvento.setSiguiente(inicioEvento);
+        } else if (e.getNombreEve().compareTo(finEvento.getDato().getNombreEve()) >= 0) {
+            finEvento.setSiguiente(nuevo);
+            finEvento = nuevo;
+            finEvento.setSiguiente(inicioEvento);
         } else {
-            NodoLC aux = inicio2;
+            NodoLC aux = inicioEvento;
             while (aux.getSiguiente().getDato().getNombreEve().compareTo(e.getNombreEve()) < 0) {
                 aux = aux.getSiguiente();
             }
@@ -109,22 +183,22 @@ public class Eventos extends Lista {
 
     public void editarEvento() {
         if (!esVaciaEvento()) {
-            NodoLC aux = inicio2;
+            NodoLC aux = inicioEvento;
             String evento = (JOptionPane.
                     showInputDialog(null, "Digite el nombre del evento que desea cambiar:"));
             if (aux.getDato().getNombreEve().equals(evento)) {
                 String nuevo = (JOptionPane.
                         showInputDialog(null, "Digite el nuevo nombre del evento:"));
-                inicio2.getDato().setNombreEve(nuevo);
+                inicioEvento.getDato().setNombreEve(nuevo);
 
             }
             aux = aux.getSiguiente();
 
-            while (aux != inicio2) {
+            while (aux != inicioEvento) {
                 if (aux.getDato().getNombreEve().equals(evento)) {
                     String nuevo = (JOptionPane.
                             showInputDialog(null, "Digite el nuevo nombre del evento:"));
-                    inicio2.getDato().setNombreEve(nuevo);
+                    inicioEvento.getDato().setNombreEve(nuevo);
 
                 }
                 aux = aux.getSiguiente();
@@ -166,11 +240,11 @@ public class Eventos extends Lista {
     public void mostrarEventos() {
         if (!esVaciaEvento()) {
             String s = "";
-            NodoLC aux = inicio2;
+            NodoLC aux = inicioEvento;
             s = s + aux.getDato().getNombreEve() + " - " + aux.getDato().getFechaEve() + " - "
                     + aux.getDato().getLugarEve() + " - " + aux.getDato().getDireccionEve() + "\n";
             aux = aux.getSiguiente();
-            while (aux != inicio2) {
+            while (aux != inicioEvento) {
                 s = s + aux.getDato().getNombreEve() + " - " + aux.getDato().getFechaEve() + " - "
                         + aux.getDato().getLugarEve() + " - " + aux.getDato().getDireccionEve() + "\n";
                 aux = aux.getSiguiente();
@@ -204,19 +278,19 @@ public class Eventos extends Lista {
     public void inactivarEvento() {
         if (!esVaciaEvento()) {
             String evento = JOptionPane.showInputDialog(null, "Ingrese el evento a invalidar");
-            NodoLC aux = inicio2;
+            NodoLC aux = inicioEvento;
             if (aux.getDato().getNombreEve().equals(evento)) {
-                inicio2.getDato().setEstadoEve(inicio2.getDato().getEstadoEve2());
+                inicioEvento.getDato().setEstadoEve(inicioEvento.getDato().getEstadoEve2());
             }
             aux = aux.getSiguiente();
 
-            while (aux != inicio2) {
+            while (aux != inicioEvento) {
                 if (aux.getDato().getNombreEve().equals(evento)) {
-                    inicio2.getDato().setEstadoEve(inicio2.getDato().getEstadoEve2());
+                    inicioEvento.getDato().setEstadoEve(inicioEvento.getDato().getEstadoEve2());
                 }
                 aux = aux.getSiguiente();
             }
-            JOptionPane.showMessageDialog(null, "El estado del usuario: " + inicio2.getDato().getNombreEve() + " es " + inicio2.getDato().getEstadoEve2());
+            JOptionPane.showMessageDialog(null, "El estado del usuario: " + inicioEvento.getDato().getNombreEve() + " es " + inicioEvento.getDato().getEstadoEve2());
 
         } else {
             JOptionPane.showMessageDialog(null, "No se puede mostrar, lista vacía!", "Error",
