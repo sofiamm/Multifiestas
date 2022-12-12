@@ -109,31 +109,32 @@ public class Eventos extends Lista {
 
     public void CatalogoEventos() {
         Datos e = new Datos();
-        e.setNombre(JOptionPane.showInputDialog(null,
+        e.setNombreEve(JOptionPane.showInputDialog(null,
                 "Ingrese el nombre del evento:"));
-        e.setFecha(JOptionPane.showInputDialog(null,
+        e.setFechaEveEve(JOptionPane.showInputDialog(null,
                 "Ingrese la fecha:"));
-        e.setLugar(JOptionPane.showInputDialog(null,
+        e.setLugarEveEve(JOptionPane.showInputDialog(null,
                 "Ingrese el lugar:"));
-        e.setDirección(JOptionPane.showInputDialog(null,
+        e.setDireccionEve(JOptionPane.showInputDialog(null,
                 "Ingrese la dirección con la ciudad:"));
+        
         NodoLC nuevo = new NodoLC();
         nuevo.setDato(e);
         if (esVaciaLC()) {
             inicio2 = nuevo;
             fin2 = nuevo;
             fin2.setSiguiente(inicio2);
-        } else if (e.getNombre().compareTo(inicio2.getDato().getNombre()) < 0) {
+        } else if (e.getNombreEve().compareTo(inicio2.getDato().getNombreEve()) < 0) {
             nuevo.setSiguiente(inicio2);
             inicio2 = nuevo;
             fin2.setSiguiente(inicio2);
-        } else if (e.getNombre().compareTo(fin.getDato().getNombre()) >= 0) {
+        } else if (e.getNombreEve().compareTo(fin.getDato().getNombreEve()) >= 0) {
             fin2.setSiguiente(nuevo);
             fin2 = nuevo;
             fin2.setSiguiente(inicio2);
         } else {
             NodoLC aux = inicio2;
-            while (aux.getSiguiente().getDato().getNombre().compareTo(e.getNombre()) < 0) {
+            while (aux.getSiguiente().getDato().getNombreEve().compareTo(e.getNombreEve()) < 0) {
                 aux = aux.getSiguiente();
             }
             nuevo.setSiguiente(aux.getSiguiente());
@@ -143,7 +144,7 @@ public class Eventos extends Lista {
 
     public void CatalogoAsientos() {
         Datos e = new Datos();
-        e.setCodigo_area(Long.parseLong(JOptionPane.showInputDialog(null,
+        e.setCodigoArea(Long.parseLong(JOptionPane.showInputDialog(null,
                 "Ingrese el código de área:")));
         e.setNumeroA(Integer.parseInt(JOptionPane.showInputDialog(null,
                 "Ingrese el número de asiento:")));
@@ -183,19 +184,19 @@ public class Eventos extends Lista {
             NodoLC aux = inicio2;
             String evento = (JOptionPane.
                     showInputDialog(null, "Digite el nombre del evento"));
-            if (aux.getDato().getNombre().equals(evento)) {
+            if (aux.getDato().getNombreEve().equals(evento)) {
                 String nuevo = (JOptionPane.
                         showInputDialog(null, "Coloque el nuevo dato a editar"));
-                inicio2.getDato().setNombre(nuevo);
+                inicio2.getDato().setNombreEve(nuevo);
 
             }
             aux = aux.getSiguiente();
 
             while (aux != inicio2) {
-                if (aux.getDato().getNombre().equals(evento)) {
+                if (aux.getDato().getNombreEve().equals(evento)) {
                     String nuevo = (JOptionPane.
                             showInputDialog(null, "Coloque el nuevo dato a editar"));
-                    inicio2.getDato().setNombre(nuevo);
+                    inicio2.getDato().setNombreEve(nuevo);
 
                 }
                 aux = aux.getSiguiente();
@@ -238,12 +239,12 @@ public class Eventos extends Lista {
         if (!esVaciaLC()) {
             String s = "";
             NodoLC aux = inicio2;
-            s = s + aux.getDato().getNombre() + " - " + aux.getDato().getFecha() + " - "
-                    + aux.getDato().getLugar() + " - " + aux.getDato().getDirección() + "\n";
+            s = s + aux.getDato().getNombreEve() + " - " + aux.getDato().getFechaEve() + " - "
+                    + aux.getDato().getLugarEve() + " - " + aux.getDato().getDireccionEve() + "\n";
             aux = aux.getSiguiente();
             while (aux != inicio2) {
-                s = s + aux.getDato().getNombre() + " - " + aux.getDato().getFecha() + " - "
-                        + aux.getDato().getLugar() + " - " + aux.getDato().getDirección() + "\n";
+                s = s + aux.getDato().getNombreEve() + " - " + aux.getDato().getFechaEve() + " - "
+                        + aux.getDato().getLugarEve() + " - " + aux.getDato().getDireccionEve() + "\n";
                 aux = aux.getSiguiente();
             }
             JOptionPane.showMessageDialog(null, "La lista de Catalago de eventos contiene:\n" + s);
@@ -257,11 +258,11 @@ public class Eventos extends Lista {
         if (!esVaciaDC()) {
             String s = "";
             NodoDC aux = inicio;
-            s = s + aux.getDato().getNumeroA() + " - " + aux.getDato().getCodigo_area() + " - "
+            s = s + aux.getDato().getNumeroA() + " - " + aux.getDato().getCodigoArea() + " - "
                     + aux.getDato().getCosto() + "\n";
             aux = aux.getSiguiente();
             while (aux != inicio) {
-                s = s + aux.getDato().getNumeroA() + " - " + aux.getDato().getCodigo_area() + " - "
+                s = s + aux.getDato().getNumeroA() + " - " + aux.getDato().getCodigoArea() + " - "
                         + aux.getDato().getCosto() + "\n";
                 aux = aux.getSiguiente();
             }
@@ -276,18 +277,18 @@ public class Eventos extends Lista {
         if (!esVaciaLC()) {
             String evento = JOptionPane.showInputDialog(null, "Ingrese el evento a invalidar");
             NodoLC aux = inicio2;
-            if (aux.getDato().getNombre().equals(evento)) {
+            if (aux.getDato().getNombreEve().equals(evento)) {
                 inicio2.getDato().setEstado(inicio2.getDato().getEstado2());
             }
             aux = aux.getSiguiente();
 
             while (aux != inicio2) {
-                if (aux.getDato().getNombre().equals(evento)) {
+                if (aux.getDato().getNombreEve().equals(evento)) {
                     inicio2.getDato().setEstado(inicio2.getDato().getEstado2());
                 }
                 aux = aux.getSiguiente();
             }
-            JOptionPane.showMessageDialog(null, "El estado del usuario: " + inicio2.getDato().getNombre() + " es " + inicio2.getDato().getEstado2());
+            JOptionPane.showMessageDialog(null, "El estado del usuario: " + inicio2.getDato().getNombreEve() + " es " + inicio2.getDato().getEstado2());
 
         } else {
             JOptionPane.showMessageDialog(null, "No se puede mostrar, lista vacía!", "Error",

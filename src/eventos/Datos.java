@@ -2,59 +2,97 @@ package eventos;
 
 public class Datos {
 
-    private String nombre;
-    private String fecha;
-    private String lugar;
-    private String estado;
-    private long codigo_area;
+    private String nombreEve;
+    private String fechaEve;
+    private String lugarEve;
+    private String ciudad;
+    private String direccionEve;
+    private String estadoEve;
+    private String estadoEve2;
+    private long codigoArea;
     private int numeroA;
     private double costo;
-    private String estado2;
-    private String dirección;
+    private String estadoAsiento;
+    private String estadoAsiento2;
 
     public Datos() {
-        this.nombre = "";
-        this.fecha = "";
-        this.lugar = "";
-        this.estado = "Activo";
-        this.codigo_area = 0;
+        this.nombreEve = "";
+        this.fechaEve = "";
+        this.lugarEve = "";
+        this.ciudad = "";
+        this.direccionEve = "";
+        this.estadoEve = "Activo";
+        this.estadoEve2 = "Inactivo";
+        this.codigoArea = 0;
         this.numeroA = 0;
         this.costo = 0.00;
-        this.estado2 = "Inactivo";
-        this.dirección = "";
+        this.estadoAsiento = "Libre";
+        this.estadoAsiento2 = "Ocupado";
 
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreEve() {
+        return nombreEve;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreEve(String nombreEve) {
+        this.nombreEve = nombreEve;
     }
 
-    public String getFecha() {
-        return fecha;
+    public String getFechaEve() {
+        return fechaEve;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setFechaEve(String fechaEve) {
+        this.fechaEve = fechaEve;
     }
 
-    public String getLugar() {
-        return lugar;
+    public String getLugarEve() {
+        return lugarEve;
     }
 
-    public void setLugar(String lugar) {
-        this.lugar = lugar;
+    public void setLugarEve(String lugarEve) {
+        this.lugarEve = lugarEve;
     }
 
-    public long getCodigo_area() {
-        return codigo_area;
+    public String getCiudad() {
+        return ciudad;
     }
 
-    public void setCodigo_area(long codigo_area) {
-        this.codigo_area = codigo_area;
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public String getDireccionEve() {
+        return direccionEve;
+    }
+
+    public void setDireccionEve(String direccionEve) {
+        this.direccionEve = direccionEve;
+    }
+
+    public String getEstadoEve() {
+        return estadoEve;
+    }
+
+    public void setEstadoEve(String estadoEve) {
+        this.estadoEve = estadoEve;
+    }
+
+    public String getEstadoEve2() {
+        return estadoEve2;
+    }
+
+    public void setEstadoEve2(String estadoEve2) {
+        this.estadoEve2 = estadoEve2;
+    }
+
+    public long getCodigoArea() {
+        return codigoArea;
+    }
+
+    public void setCodigoArea(long codigoArea) {
+        this.codigoArea = codigoArea;
     }
 
     public int getNumeroA() {
@@ -73,28 +111,20 @@ public class Datos {
         this.costo = costo;
     }
 
-    public String getDirección() {
-        return dirección;
+    public String getEstadoAsiento() {
+        return estadoAsiento;
     }
 
-    public void setDirección(String dirección) {
-        this.dirección = dirección;
+    public void setEstadoAsiento(String estadoAsiento) {
+        this.estadoAsiento = estadoAsiento;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getEstadoAsiento2() {
+        return estadoAsiento2;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public String getEstado2() {
-        return estado2;
-    }
-
-    public void setEstado2(String estado2) {
-        this.estado2 = estado2;
+    public void setEstadoAsiento2(String estadoAsiento2) {
+        this.estadoAsiento2 = estadoAsiento2;
     }
 
 }
