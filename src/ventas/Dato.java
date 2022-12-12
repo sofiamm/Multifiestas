@@ -8,9 +8,10 @@ public class Dato extends Datos {
 
     private int numeroAsiento;
     private String dateTime;
-    
+   
 
-    public Dato() {
+    public Dato () {
+     
         this.numeroAsiento = 0;
        this.dateTime = DateTimeFormatter.ofPattern("MMM dd yyyy, hh:mm a").format(LocalDateTime.now());
     }

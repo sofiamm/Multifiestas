@@ -2,16 +2,30 @@ package ventas;
 
 import javax.swing.JOptionPane;
 
+
+
 public class Arbol {
 
     private NodoA raiz;
-
+    private NodoDC inicio;
+    private NodoDC fin;
+    private int Tam;
     public Arbol() {
         this.raiz = null;
+        this.inicio=null;
+        this.fin=null;
+        this.Tam=0;
     }
 
     public boolean esVacio() {
         if (raiz == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public boolean esVacioDC() {
+        if (inicio == null) {
             return true;
         } else {
             return false;
@@ -100,11 +114,81 @@ public class Arbol {
 
     public void mostrarNodo(NodoA raiz) {
         if (raiz != null) {
-            mostrarNodo(raiz.getEnlaceIzq());
+            mostrarNodo(raiz.getEnlaceIzq());           
             System.out.print(" " + raiz.getElemento().getNumeroAsiento() + " " + raiz.getElemento().getNombre() + " " + raiz.getElemento().getDateTime() + " " + raiz.getElemento().getNombreEve() + " ");
             mostrarNodo(raiz.getEnlaceDer());
         }
         System.out.print("\n");
+    }
+    public void Ingresos_del_Dia() {
+        Dato e = new Dato();
+        e.setCosto(Double.parseDouble(JOptionPane.showInputDialog(null, "Digite el Costo")));
+        NodoDC nuevo = new NodoDC();
+        nuevo.setDato(e);
+        if (esVacioDC()) {
+            inicio = nuevo;
+            fin = nuevo;
+            fin.setSiguiente(inicio);
+            inicio.setAnterior(fin);
+        } else if (e.getCosto() < inicio.getDato().getCosto()) {
+            nuevo.setSiguiente(inicio);
+            inicio = nuevo;
+            fin.setSiguiente(inicio);
+            inicio.setAnterior(fin);
+        } else if (e.getCosto() >= fin.getDato().getCosto()) {
+            fin.setSiguiente(nuevo);
+            fin = nuevo;
+            fin.setSiguiente(inicio);
+            inicio.setAnterior(fin);
+        } else {
+            NodoDC aux = inicio;
+            while (aux.getSiguiente().getDato().getCosto() < e.getCosto()) {
+                aux = aux.getSiguiente();
+            }
+            nuevo.setSiguiente(aux.getSiguiente());
+            nuevo.setAnterior(aux);
+            aux.setSiguiente(nuevo);
+            nuevo.getSiguiente().setAnterior(nuevo);
+        }
+      ++Tam;
+    }
+    
+    public void Suma(){
+        if(!esVacioDC()){
+            double total=0;
+            String s="";
+            int num = Integer.parseInt(JOptionPane.showInputDialog(null,
+                    "¿Cuántos asientos compro?"));
+        NodoDC aux= inicio;
+       total= num*inicio.getDato().getCosto();
+       s=s+"El monto total"+total;
+      aux=aux.getSiguiente();
+      
+      while(aux!=inicio){
+        total= num*inicio.getDato().getCosto();
+        s=s+"El monto total"+total;
+       aux=aux.getSiguiente();
+       
+   }
+   JOptionPane.showMessageDialog(null,"Montos totales\n"+s);
+    }
+}
+
+    public void mostrarAlmacenaje() {
+        if (!esVacioDC()) {
+            String s = "";
+            NodoDC aux = inicio;
+            s =s +  "Ingresos del dia\n"+Tam+"\n"+inicio.getDato().getDateTime();
+            aux = aux.getSiguiente();
+            while (aux != inicio) {
+                s = s+ "Ingresos del dia\n"+Tam+"\n"+inicio.getDato().getDateTime();
+                aux = aux.getSiguiente();
+            }
+            JOptionPane.showMessageDialog(null, "Catálogo de asientos\n" + s);
+        } else {
+            JOptionPane.showMessageDialog(null, "¡No se puede mostrar la lista vacía!",
+                    "Lista vacía", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
 }
