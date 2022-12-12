@@ -1,6 +1,7 @@
 package eventos;
 
-public class Datos {
+import clientes.Clientes;
+public class Datos extends Clientes {
 
     private String nombreEve;
     private String fechaEve;

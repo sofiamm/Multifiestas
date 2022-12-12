@@ -3,7 +3,7 @@ package ventas;
 import javax.swing.JOptionPane;
 
 public class Menu {
-    
+
     private int opc;
     Arbol a = new Arbol();
 
@@ -11,12 +11,12 @@ public class Menu {
         Menu m = new Menu();
         opc = Integer.parseInt(JOptionPane.showInputDialog(null,
                 "-- MENÚ PRINCIPAL --\n"
-                        + "1. Comprar asientos\n"
-                        + "2. Modificar asiento\n"
-                        + "2. Mostrar asientos\n"
-                        + "3. Cancelar asientos\n"
-                        + "4. Salir\n"
-                        + "Digite su opción:"));
+                + "1. Comprar asientos\n"
+                + "2. Modificar asiento\n"
+                + "3. Mostrar asientos\n"
+                + "4. Cancelar asientos\n"
+                + "5. Salir\n"
+                + "Digite su opción:"));
         switch (opc) {
             case 1: {
                 a.inserta();
@@ -24,16 +24,21 @@ public class Menu {
                 break;
             }
             case 2: {
-                a.mostrarRaiz();
+                a.modificarAsiento();
                 mostrarMenu();
                 break;
             }
             case 3: {
-            
+                a.mostrarRaiz();
                 mostrarMenu();
                 break;
             }
             case 4: {
+                a.cancelarAsiento();
+                mostrarMenu();
+                break;
+            }
+            case 5: {
                 System.exit(0);
                 break;
             }
@@ -43,5 +48,5 @@ public class Menu {
             }
         }
     }
-    
+
 }
