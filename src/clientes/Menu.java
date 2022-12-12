@@ -1,13 +1,13 @@
 package clientes;
 
-import eventos.Eventos;
+import eventos.MenuEventos;
 import javax.swing.JOptionPane;
 
 public class Menu {
 
     private int opcion;
     Lista lsc = new Lista();
-    Eventos eve = new Eventos();
+    MenuEventos eve = new MenuEventos();
     
     public void mostrarMenu() {
         opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "-- MENÚ PRINCIPAL --\n\n"  
@@ -15,7 +15,7 @@ public class Menu {
                 + "2. Iniciar Sesión\n"
                 + "3. Mostrar clientes por nombre\n"
                 + "4. Inactivar Usuario\n"
-                + "5. Mostrar Catalogo de eventos\n"
+                + "5. Ir a menú de eventos\n"
                 + "6. Salir del sistema\n\n"
                 + "Digite su opción:"));
         
@@ -46,14 +46,14 @@ public class Menu {
                 break;
             }
             case 6: {
-                JOptionPane.showMessageDialog(null, "Gracias por usar el sistema del grupo Multifiestas  :)");
+                JOptionPane.showMessageDialog(null, "¡Gracias por usar el sistema del grupo Multifiestas!");
                 System.exit(0);
                 break;
             }
             
             default: {
                 JOptionPane.showMessageDialog(null,
-                        "¡Opción invalida, ingrese una de las opciones validas del menu!", "Error", JOptionPane.ERROR_MESSAGE);
+                        "¡Opción invalida, ingrese una de las opciones validas del menú!", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
