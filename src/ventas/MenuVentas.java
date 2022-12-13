@@ -1,16 +1,13 @@
 package ventas;
-
 import javax.swing.JOptionPane;
 
 import clientes.Menu;
 
-
-
-public class MenuVentas  {
+public class MenuVentas {                                                       
 
     private int opc;
     Arbol a = new Arbol();
-   
+
     public void mostrarMenu() {
         MenuVentas m = new MenuVentas();
         opc = Integer.parseInt(JOptionPane.showInputDialog(null,
@@ -35,8 +32,8 @@ public class MenuVentas  {
             }
             case 3: {
                 a.mostrarRaiz();
-              a.mostrarAlmacenaje();
-              a.Suma();
+                a.mostrarAlmacenaje();
+                a.Suma();
                 mostrarMenu();
                 break;
             }

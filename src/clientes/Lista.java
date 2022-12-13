@@ -57,8 +57,8 @@ public class Lista {
         if (!esVacia()) {
             String s = "";
             Nodo aux = inicio;
-            s = s + aux.getElemento().getNombre() + " - " + aux.getElemento().getUsername() + " - "
-                    + aux.getElemento().getPassword() + " - " + aux.getElemento().getEstado() + "\n";
+            s = s + "Nombre: "+aux.getElemento().getNombre() + " / Username: "+ aux.getElemento().getUsername() + " /Password: "
+                    + aux.getElemento().getPassword() + " / Estado: " + aux.getElemento().getEstado() + "\n";
             aux = aux.getSiguiente();
             while (aux != inicio) {
                 s = s + aux.getElemento().getNombre() + " - " + aux.getElemento().getUsername() + " - "

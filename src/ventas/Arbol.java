@@ -111,6 +111,7 @@ public class Arbol {
             JOptionPane.showMessageDialog(null, "¡No se puede mostrar, árbol vacío!");
         }
     }
+    
 
     public void mostrarNodo(NodoA raiz) {
         if (raiz != null) {
